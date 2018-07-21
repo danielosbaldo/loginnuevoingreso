@@ -27,7 +27,7 @@ gem 'bootstrap', '~> 4.0.0'
 gem 'devise'
 gem 'high_voltage'
 gem 'jquery-rails'
-gem 'mysql2', '~> 0.3.18'
+gem 'mysql2', '~> 0.5.2'
 gem 'therubyracer', :platform=>:ruby
 group :development do
   gem 'better_errors'
