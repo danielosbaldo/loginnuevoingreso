@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @resource.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @resource.descripcion %>
+</p>
+
+<p>
+  <strong>Interes:</strong>
+  <%= @resource.interes %>
+</p>
+<p>
+  <strong>Link:</strong>
+  <%= @resource.link %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @resource.parent %>
+</p>
+<% if current_user.admin? %>
+<%= link_to 'Edit', edit_resource_path(@resource) %> |
+<%= link_to 'Back', resources_path %>
+<% end %>

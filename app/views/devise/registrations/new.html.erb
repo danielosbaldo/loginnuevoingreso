@@ -1,18 +1,42 @@
-<div class="authform">
+<div class="authform registration">
   <h3>Registro</h3>
   <p> ingrese su curp para precargar sus datos:</p>
-  <div class="form-group">
-    <input type="text" class="form-control" id="curp" aria-describedby="curpHelp" placeholder="Ingresa Curp">
+  <div class="teacherData">
+    <div class="form-group">
+      <label for="curp">curp</label>
+      <input type="text" class="form-control" maxlength="18" id="curp" aria-describedby="curpHelp" placeholder="Ingresa Curp">
+    </div>
+    <div id="teachinfo" class="teacherInfo">
+      <div class="form-group">
+        <label for="nombre">nombre:</label>
+        <input type="text" class="form-control"  id="nombre" aria-describedby="nombre" placeholder="Nombre">
+      </div>
+      <div class="form-group">
+        <label for="plaza">plaza:</label>
+        <input type="text" class="form-control"  id="plaza" aria-describedby="curpHelp" placeholder="Ingresa Curp">
+      </div>
+      <div class="form-group">
+        <label for="performance">desempeño</label>
+        <input type="text" class="form-control" id="performance" aria-describedby="curpHelp" placeholder="Ingresa Curp">
+      </div>
+      <div class="form-group">
+        <label for="correo">correo</label>
+        <input type="text" class="form-control" id="correo" aria-describedby="curpHelp" placeholder="Ingresa Curp">
+      </div>
+      <div class="form-group">
+        <label for="localidad">localidad</label>
+        <input type="text" class="form-control" id="localidad" aria-describedby="curpHelp" placeholder="Ingresa Curp">
+      </div>
+    </div>
   </div>
   <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :role => 'form'}) do |f| %>
     <%= devise_error_messages! %>
-
     <div class="form-group">
       <%= f.label :email %>
       <%= f.email_field :email, :autofocus => true, class: 'form-control' %>
     </div>
     <div class="form-group">
-      <%= f.label :password %>
+      <%= f.label :password,'' %>
       <%= f.password_field :password, class: 'form-control' %>
     </div>
     <div class="form-group">

@@ -10,14 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_23_050856) do
+ActiveRecord::Schema.define(version: 2018_08_03_212919) do
 
   create_table "phones", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "phonenumber"
+    t.string "phonenumber", limit: 150
     t.bigint "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["teacher_id"], name: "index_phones_on_teacher_id"
+  end
+
+  create_table "resources", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nombre"
+    t.text "descripcion"
+    t.integer "interes"
+    t.string "link"
+    t.integer "parent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "teachers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,6 +60,7 @@ ActiveRecord::Schema.define(version: 2018_07_23_050856) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

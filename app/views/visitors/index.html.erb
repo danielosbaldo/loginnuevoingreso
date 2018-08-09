@@ -1,2 +1,33 @@
-<h3>Welcome</h3>
-<p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+<div class="container2">
+<h3>Material Para Maestros</h3>
+  <ul class="accordion" id="accordion">
+    <% @resourses.each do |resource| %>
+      <% if resource.parent == 0 %>
+        <li class="accordion__list"
+            <% if resource.link != '' %>
+            onclick="window.open('<%=resource.link %>');"
+            <%end%>
+        >
+          <div class="link"><i class="fas fa-book-open"></i><span class="link__title">
+            <%= resource.nombre %></span>
+            <% if resource.link == ''%>
+              <i class="fa fa-chevron-down"></i>
+            <%end%>
+          </div>
+          <%found = @resourses.select {|x| x["parent"] == resource.id}
+            if found.any?
+          %>
+            <ul class="submenu">
+              <%found.each do |f| %>
+              <li><a href="<%= f.link %>" target="_blank" rel="noopener noreferrer">
+                <%= f.nombre %></a>
+              </li>
+              <%end %>
+            </ul>
+          <% end %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+
+</div>

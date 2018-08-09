@@ -1,0 +1,23 @@
+// Place all the styles related to the teacher controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "bootstrap";
+
+$breakpoint-tablet: 768px;
+.teacherData{
+  @extend .col-md-9;
+  text-align: center;
+  @extend .card;
+  text-align: left;
+  padding-bottom: 10px;
+  @extend .bg-light;
+  @extend .small;
+}
+.teacherData label{
+  display: inline-block;
+  margin-bottom: .5rem;
+}
+
+.teacherInfo{
+  display: none;
+}

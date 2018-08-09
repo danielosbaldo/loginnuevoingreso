@@ -38,5 +38,21 @@ feature 'User edit', :devise do
     expect(page).to have_content 'Edit User'
     expect(page).to have_field('Email', with: me.email)
   end
+  scenario "user should be able to change its account", :me do
+    password = '12345678'
+    password_change = '123456789'
+    me = FactoryBot.create(:user, password: password)
+    login_as(me, :scope => :user)
+    visit edit_user_registration_path(me)
+    expect(page).to have_field('Email', with: me.email)
+    fill_in "Password", :with => password_change
+    fill_in "Confirme su Password", :with => password_change
+    fill_in "Current password", :with => password
+    click_button "Update"
+    logout(me)
+    login_as(me)
+    expect(page).to have_content 'Your account has been updated successfully.'
+
+  end
 
 end
