@@ -28,6 +28,23 @@ Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.
 
 Getting Started
 ---------------
+To Start using the app we need to set up the database first
+is a Mysql driver as default,
+```bash
+bundle install
+rails db create
+rails db migrate
+```
+after installing gems and creating the database you should run the seeds to start testing the app
+```bash
+rails db seed
+```
+the project uses RSPEC FOR TESTING it is expected if you want to contribute for you to know it
+
+```bash
+rails s
+```
+the project uses default middleware and Rack configuration
 
 Documentation and Support
 -------------------------
